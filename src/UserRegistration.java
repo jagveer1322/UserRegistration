@@ -6,7 +6,7 @@ public class UserRegistration {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Pattern pattern;
-		String firstName, lastName;
+		String firstName, lastName, email;
 		Matcher matcher;
 
 		pattern = Pattern.compile("^[A-Z][a-z]{2,}");
@@ -28,5 +28,16 @@ public class UserRegistration {
 			}
 			System.out.println("Enter valid last name");
 		}
+
+		pattern = Pattern.compile("abc(\\.xyz)?@bl\\.co(\\.in)?");
+		System.out.println("Enter the email");
+		while (true) {
+			email = scanner.nextLine();
+			if (pattern.matcher(email).matches()) {
+				break;
+			}
+			System.out.println("Enter valid email");
+		}
+
 	}
 }
