@@ -3,14 +3,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Pattern pattern;
-		String firstName, lastName, email, mobileNumber, password;
+		String firstName, lastName, email, password;
 		Matcher matcher;
 
-		pattern = Pattern.compile("[A-Z][a-z]{2,}");
+		pattern = Pattern.compile("^[A-Z][a-z]{2,}");
 		System.out.println("Enter the FirstName");
 		while (true) {
 			firstName = scanner.nextLine();
@@ -39,24 +38,21 @@ public class UserRegistration {
 			}
 			System.out.println("Enter valid email");
 		}
-		pattern = Pattern.compile("^\\d{2}\\s\\d{10}");
-		System.out.println("Enter the mobile number");
-		while (true) {
-			mobileNumber = scanner.nextLine();
-			if (pattern.matcher(mobileNumber).matches()) {
-				break;
-			}
-			System.out.println("Enter valid mobile number");
-		}
+
 		System.out.println("Enter the password");
 		while (true) {
 			password = scanner.nextLine();
-			pattern = Pattern.compile(".{8,}");
-			if (pattern.matcher(email).matches()) {
-				break;
+			pattern = Pattern.compile(".{7,}");
+			if (!pattern.matcher(password).matches()) {
+				System.out.println("Enter valid password");
+				continue;
 			}
-			System.out.println("Enter valid password");
-		}
 
+			pattern = Pattern.compile(".*[A-Z].*");
+			if (!pattern.matcher(password).matches()) {
+				System.out.println("Enter valid password");
+				continue;
+			}
+		}
 	}
 }
