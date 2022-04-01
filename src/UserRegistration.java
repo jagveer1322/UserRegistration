@@ -3,10 +3,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
+
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Pattern pattern;
-		String firstName, lastName, email, mobileNumber;
+		String firstName, lastName, email, mobileNumber, password;
 		Matcher matcher;
 
 		pattern = Pattern.compile("[A-Z][a-z]{2,}");
@@ -46,6 +47,15 @@ public class UserRegistration {
 				break;
 			}
 			System.out.println("Enter valid mobile number");
+		}
+		System.out.println("Enter the password");
+		while (true) {
+			password = scanner.nextLine();
+			pattern = Pattern.compile(".{8,}");
+			if (pattern.matcher(email).matches()) {
+				break;
+			}
+			System.out.println("Enter valid password");
 		}
 
 	}
