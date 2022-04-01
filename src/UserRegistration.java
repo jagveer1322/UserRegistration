@@ -6,10 +6,10 @@ public class UserRegistration {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Pattern pattern;
-		String firstName, lastName, email;
+		String firstName, lastName, email, mobileNumber;
 		Matcher matcher;
 
-		pattern = Pattern.compile("^[A-Z][a-z]{2,}");
+		pattern = Pattern.compile("[A-Z][a-z]{2,}");
 		System.out.println("Enter the FirstName");
 		while (true) {
 			firstName = scanner.nextLine();
@@ -37,6 +37,15 @@ public class UserRegistration {
 				break;
 			}
 			System.out.println("Enter valid email");
+		}
+		pattern = Pattern.compile("^\\d{2}\\s\\d{10}");
+		System.out.println("Enter the mobile number");
+		while (true) {
+			mobileNumber = scanner.nextLine();
+			if (pattern.matcher(mobileNumber).matches()) {
+				break;
+			}
+			System.out.println("Enter valid mobile number");
 		}
 
 	}
