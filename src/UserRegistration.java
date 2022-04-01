@@ -53,6 +53,12 @@ public class UserRegistration {
 				System.out.println("Enter valid password");
 				continue;
 			}
+
+			pattern = Pattern.compile(".*\\d.*");
+			if (!pattern.matcher(password).matches()) {
+				System.out.println("Enter valid password");
+				continue;
+			}
 		}
 	}
 }
